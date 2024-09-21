@@ -59,6 +59,12 @@ tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext
 tsc --init 
 tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext --init
 
+# Semver + clean install
+https://semver.org/ 
+https://semver.npmjs.com/
+
+npm i   // install from package.json + updates
+npm ci  // install exact from package-lock.json - no updates
 
 # DevOps
 
