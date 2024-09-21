@@ -9,8 +9,13 @@ type Props = {
 const PlaylistList = ({ playlists }: Props) => {
   return (
     <div>
-      PlaylistList
-      <pre>{JSON.stringify(playlists, null, 2)}</pre>
+      <div className="divide-y divide-gray-300 divide-solid ">
+        {playlists.map((playlist, index) => (
+          <p className="px-2 py-5">{index+1}. {playlist.name}</p>
+        ))}
+      </div>
+
+      {/* <pre>{JSON.stringify(playlists, null, 2)}</pre> */}
     </div>
   );
 };
