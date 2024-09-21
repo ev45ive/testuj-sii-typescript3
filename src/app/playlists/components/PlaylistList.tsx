@@ -1,12 +1,18 @@
 // tsrafce
-import React from 'react'
+import { Playlist } from "@/app/model/Playlist";
+import React from "react";
 
-type Props = {}
+type Props = {
+  playlists: Playlist[];
+};
 
-const PlaylistList = (props: Props) => {
+const PlaylistList = ({ playlists }: Props) => {
   return (
-    <div>PlaylistList</div>
-  )
-}
+    <div>
+      PlaylistList
+      <pre>{JSON.stringify(playlists, null, 2)}</pre>
+    </div>
+  );
+};
 
-export default PlaylistList
+export default PlaylistList;

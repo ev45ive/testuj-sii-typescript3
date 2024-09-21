@@ -1,18 +1,10 @@
 import React from "react";
 import { Playlist } from "../../model/Playlist";
 
-type Props = {};
+type Props = { playlist: Playlist };
 
-const PlaylistEditor = (props: Props) => {
-
-  const playlist: Playlist = {
-    id: "123",
-    name: "PLaylis 1123",
-    description: "",
-    public: false,
-  };
-
-  return <div>PlaylistEditor</div>;
+const PlaylistEditor = ({ playlist }: Props) => {
+  return <div>PlaylistEditor {playlist.name}</div>;
 };
 
 export default PlaylistEditor;

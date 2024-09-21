@@ -2,14 +2,11 @@ import { Playlist } from "../model/Playlist";
 import PlaylistDetails from "./components/PlaylistDetails";
 import PlaylistEditor from "./components/PlaylistEditor";
 import PlaylistList from "./components/PlaylistList";
+import { mockPlaylists } from "./mockPlaylists";
 
 export default function PlaylistsView() {
-  const playlist: Playlist = {
-    id: "123",
-    name: "Playlist 123",
-    public: true,
-    description: "Awesome playlist",
-  };
+  const playlists: Playlist[] = mockPlaylists;
+  const selected = playlists[0];
 
   return (
     <div className="container">
@@ -17,12 +14,12 @@ export default function PlaylistsView() {
 
       <div className="grid grid-cols-2 gap-5">
         <div>
-          <PlaylistList />
+          <PlaylistList playlists={playlists} />
         </div>
         <div>
-          <PlaylistDetails playlist={playlist} />
+          <PlaylistDetails playlist={selected} />
 
-          <PlaylistEditor />
+          <PlaylistEditor playlist={selected} />
         </div>
       </div>
     </div>
