@@ -1,3 +1,5 @@
+import { divide } from "./lib/lib.js"; // allowJS
+
 function add(a: number, b: number) {
   return a + b;
 }
@@ -5,18 +7,20 @@ function add(a: number, b: number) {
 // ES6
 const sub = (a: number, b: number) => a - b;
 
-class NaszaKlasa{
-  nazwa = "3B"
-}
+divide(2, 2);
 
-[''].includes('test')
+// class NaszaKlasa{
+//   nazwa = "3B"
+// }
 
-console.log('Test')
-window
-document
-HTMLButtonElement
+// [''].includes('test')
 
-add(1, 1); // OK
+// console.log('Test')
+// window
+// document
+// HTMLButtonElement
+
+// add(1, 1); // OK
 
 // add("placki", 1) // Errors but still compiles
 
