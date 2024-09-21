@@ -1,18 +1,8 @@
 // tsrafce
 
 import React from "react";
-import { Playlist } from "@/app/model/Playlist";
 
 type Props = {};
-
-const playlist: Playlist = {
-  id: "123",
-  name: "Playlist 123",
-  public: true,
-  description: "Awesome playlist",
-};
-
-// type Playlist = typeof playlist
 
 const PlaylistDetails = (props: Props) => {
   return (
