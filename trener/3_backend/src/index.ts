@@ -34,15 +34,15 @@ app.get("/playlists", (req, res) => {
   // const name = String(req.query["name"])
 
   // Type Narrowing
-  if (typeof name === "string") {
-    res.json(playlists.filter((p) => p.name.includes(name)));
-  } else if (!name) {
-    res.json(playlists);
-  } else if (name) {
-    res.json({ message: "Invalid query" });
-  } else {
-    name; // never
-  }
+  if (typeof name === "string")
+    return res.json(playlists.filter((p) => p.name.includes(name)));
+
+  if (!name) return res.json(playlists);
+
+  if (name) return res.json({ message: "Invalid query" });
+
+  // Exhaustiveness check
+  name satisfies never; // never
 });
 
 app.get("/", (req, res) => {
