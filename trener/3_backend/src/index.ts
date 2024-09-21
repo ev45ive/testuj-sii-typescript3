@@ -23,12 +23,22 @@ app.use((req, res, next) => {
 import playlists from "../data/playlists.json";
 
 app.get("/playlists", (req, res) => {
+  // res.json(req.query);
+  const name = req.query["name"];
 
-  const name = req.query['name']
+  // Type Casting
+  // const name = req.query["name"] as any;
+  // const name = req.query["name"] as string;
+  // const name = String(req.query["name"])
 
-  res.json(playlists.filter(p => p.name.includes(name)));
-  
-  res.json(playlists);
+  // Type Narrowing
+  if (typeof name === "string") {
+    res.json(playlists.filter((p) => p.name.includes(name)));
+  } else if (!name) {
+    res.json(playlists);
+  } else {
+    res.json({ message: "Invalid query" });
+  }
 });
 
 app.get("/", (req, res) => {
