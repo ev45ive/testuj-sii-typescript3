@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc --watch ./src/*.ts --strict --outDir ./dist --lib \"esnext,dom\" --target esnext",
     "build": "tsc ./src/*.ts --strict --outDir ./dist --lib \"esnext,dom\" --target esnext",
-    "dev": "tsc --watch ./src/*.ts --strict --outDir ./dist --lib \"esnext,dom\" --target esnext"
+    "build:internetexplorer": "tsc ./src/*.ts --strict --outDir ./dist --lib \"es5,dom\" --target es5"
   },
   "keywords": [],
   "author": "",
