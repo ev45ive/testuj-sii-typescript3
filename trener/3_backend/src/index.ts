@@ -1,11 +1,21 @@
 import express from "express";
+import session from "express-session";
 
 const app = express();
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "cat",
+  })
+);
+
 
 app.use((req, res, next) => {
   const user = process.argv[2] || "Stranger";
   // console.log(`Hello ${user}`);
 
+  req.session.user = { name: user };
   req.user = { name: user };
   next();
 });
@@ -22,7 +32,7 @@ app.get("/", (req, res) => {
         <body>
     <h1> ❤️❤️❤️ Welcome ${req.user.name} ❤️❤️❤️</h1>`);
   res.end();
-  res.write('')
+  res.write("");
 });
 
 app.listen(8080, () => {
