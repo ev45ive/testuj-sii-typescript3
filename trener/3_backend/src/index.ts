@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
         <body>
     <h1> ❤️❤️❤️ Welcome ${req.user.name} ❤️❤️❤️</h1>`);
   res.end();
+  res.write('')
 });
 
 app.listen(8080, () => {
