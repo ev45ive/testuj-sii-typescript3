@@ -58,3 +58,17 @@ tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext
 # tsconfig.json
 tsc --init 
 tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext --init
+
+
+# DevOps
+
+// build:
+git clone
+npm install
+npm build 
+
+// run:
+npm ci
+npm start 
+
+

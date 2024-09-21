@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"...",
     "dev": "tsc --watch ",
     "build": "tsc ",
     "build:internetexplorer": "tsc ./src/*.ts -p tsconfig.json --lib \"es5,dom\" --target es5"
