@@ -5,6 +5,9 @@ declare module "react" {
   //     placki: 123,
   //   };
 
+  /**
+   * React i placki <3
+   */
   export const placki = "123";
 }
 
