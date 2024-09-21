@@ -1,5 +1,5 @@
-console.log('Welcome TS!');
+console.log("Welcome TS!");
 
-
-
-document.getElementById('message').innerText = 'TypeScript works!'
+document
+    .getElementById("message")!
+    .innerText = "TypeScript works!";

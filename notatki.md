@@ -57,7 +57,7 @@ tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext
 
 # tsconfig.json
 tsc --init 
-tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext --init
+tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --tarstepsget esnext --init
 
 # Semver + clean install
 https://semver.org/ 
@@ -92,15 +92,17 @@ tsc ./src/lib/lib.js --allowJS --declaration --emitDeclarationOnly
 
 lib.d.ts
 
-# Web project setup steps
+# Web project setup 
 
 npm init -y 
 
 npm i -D typescript 
 
-echo 'node_modules' > .gitignore
+echo 'node_modules' >> .gitignore
+echo 'dist' >> .gitignore
 
-tsc --init ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext  
+tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext  --init
 
-tsc   // add to package.json scripts 
+// add to package.json scripts 
+tsc   
 
