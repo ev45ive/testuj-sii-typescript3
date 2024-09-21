@@ -7,12 +7,7 @@ type Props = {
   playlist: Playlist;
 };
 
-// const PlaylistDetails = (props: { playlist: Playlist }) => {
-
 const PlaylistDetails = ({ playlist }: Props) => {
-  // const playlist = props.playlist;
-  //   const { playlist } = props;
-
   return (
     <div>
       {/* .grid.gap-5>.grid.gap-2*3>strong{Name}+div{Playlist $$$} */}
