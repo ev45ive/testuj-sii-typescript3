@@ -106,3 +106,16 @@ tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext  --in
 // add to package.json scripts 
 tsc   
 
+# Backend project setup 
+
+npm init -y 
+
+npm i -D typescript 
+
+echo 'node_modules' >> .gitignore
+echo 'dist' >> .gitignore
+
+tsc ./src/*.ts --strict --outDir ./dist --lib "esnext" --target esnext  --init
+
+npm i --save-dev @types/node
+
