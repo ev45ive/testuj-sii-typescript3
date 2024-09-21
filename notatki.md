@@ -1,6 +1,6 @@
 # Instalacje
 node -v 
-v20.17.0
+v20.17.0 ++
 
 npm -v 
 10.8.2
