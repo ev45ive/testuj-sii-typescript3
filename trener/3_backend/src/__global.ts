@@ -11,6 +11,13 @@ declare global {
     interface Locals {}
     interface Application {}
   }
+
+  namespace NodeJS {
+    interface ProcessEnv {
+      HOST?: string;
+      PORT?: string;
+    }
+  }
 }
 
 declare module "express-session" {
