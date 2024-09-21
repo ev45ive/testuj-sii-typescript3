@@ -91,3 +91,16 @@ tsconfig.json / jsconfig.json
 tsc ./src/lib/lib.js --allowJS --declaration --emitDeclarationOnly
 
 lib.d.ts
+
+# Web project setup steps
+
+npm init -y 
+
+npm i -D typescript 
+
+echo 'node_modules' > .gitignore
+
+tsc --init ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext  
+
+tsc   // add to package.json scripts 
+
