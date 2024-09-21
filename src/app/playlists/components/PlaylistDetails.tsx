@@ -7,6 +7,38 @@ type Props = {
   playlist: Playlist;
 };
 
+// TS
+const user = { name: "Artem" };
+
+// TSX
+const html = (
+  <div id="123">
+    <div>{user.name}</div>
+    <div>{user.name}</div>
+    <div>{user.name}</div>
+  </div>
+);
+
+// JS
+const html2 = {
+  type: "div",
+  props: { id: "123" },
+  children: [
+    {
+      type: "div",
+      children: [user.name],
+    },
+    {
+      type: "div",
+      children: [user.name],
+    },
+    {
+      type: "div",
+      children: [user.name],
+    },
+  ],
+};
+
 const PlaylistDetails = ({ playlist }: Props) => {
   return (
     <div>
