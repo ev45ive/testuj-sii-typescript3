@@ -15,3 +15,6 @@ Terminal Ctrl + ~
 
 # GIT
 git clone https://bitbucket.org/ev45ive/testuj-sii-typescript3.git
+File -> Open folder
+
+F1 -> CLone -> Paste url -> clone from url -> open location
