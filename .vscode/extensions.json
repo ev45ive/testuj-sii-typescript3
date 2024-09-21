@@ -3,6 +3,7 @@
         "dbaeumer.vscode-eslint",
         "dsznajder.es7-react-js-snippets",
         "quicktype.quicktype",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "pulkitgangwar.nextjs-snippets"
     ]
 }
