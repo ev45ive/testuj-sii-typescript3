@@ -1,10 +1,17 @@
 // tsrafce
 
+import { Playlist } from "@/app/model/Playlist";
 import React from "react";
 
-type Props = {};
+type Props = {
+  playlist: Playlist;
+};
+
+// const PlaylistDetails = (props: { playlist: Playlist }) => {
 
 const PlaylistDetails = (props: Props) => {
+  const playlist = props.playlist;
+
   return (
     <div>
       {/* .grid.gap-5>.grid.gap-2*3>strong{Name}+div{Playlist $$$} */}

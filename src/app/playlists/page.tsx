@@ -4,13 +4,14 @@ import PlaylistEditor from "./components/PlaylistEditor";
 import PlaylistList from "./components/PlaylistList";
 
 export default function PlaylistsView() {
-
   const playlist: Playlist = {
     id: "123",
     name: "Playlist 123",
     public: true,
     description: "Awesome playlist",
   };
+
+  // PlaylistDetails({ playlist: playlist })
 
   return (
     <div className="container">
