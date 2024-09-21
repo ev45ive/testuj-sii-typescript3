@@ -4,12 +4,15 @@ import React from "react";
 
 type Props = {};
 
+
 const playlist = {
   id: "123",
   name: "Playlist 123",
   public: true,
   description: "Awesome playlist",
 };
+
+type Playlist = typeof playlist
 
 
 const PlaylistDetails = (props: Props) => {
