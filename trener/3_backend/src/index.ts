@@ -20,6 +20,12 @@ app.use((req, res, next) => {
   next();
 });
 
+import playlists from "../data/playlists.json";
+
+app.get("/playlists", (req, res) => {
+  res.json(playlists);
+});
+
 app.get("/", (req, res) => {
   res.write(/* html */ `
     <!DOCTYPE html>
