@@ -52,3 +52,5 @@ tsc index.ts --strict
 
 # target, lib
 tsc index.ts --strict --watch --target ES2015 --lib "es2015,dom"
+
+tsc ./src/*.ts --strict --outDir ./dist --lib "esnext,dom" --target esnext
