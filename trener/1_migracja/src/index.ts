@@ -1,4 +1,7 @@
 import { divide, multiply } from "./lib/lib.js"; // allowJS
+import React from "react"; // npm i -D @types/react
+
+React.placki
 
 function add(a: number, b: number) {
   return a + b;
