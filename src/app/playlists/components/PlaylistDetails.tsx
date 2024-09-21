@@ -4,14 +4,15 @@ import React from "react";
 
 type Props = {};
 
-const PlaylistDetails = (props: Props) => {
-  const playlist = {
-    id: "123",
-    name: "Playlist 123",
-    public: true,
-    description: "Awesome playlist",
-  };
+const playlist = {
+  id: "123",
+  name: "Playlist 123",
+  public: true,
+  description: "Awesome playlist",
+};
 
+
+const PlaylistDetails = (props: Props) => {
   return (
     <div>
       {/* .grid.gap-5>.grid.gap-2*3>strong{Name}+div{Playlist $$$} */}
