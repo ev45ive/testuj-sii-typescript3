@@ -1,4 +1,4 @@
-import { divide } from "./lib/lib.js"; // allowJS
+import { divide, multiply } from "./lib/lib.js"; // allowJS
 
 function add(a: number, b: number) {
   return a + b;

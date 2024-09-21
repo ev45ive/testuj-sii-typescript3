@@ -86,3 +86,8 @@ typescript    5.6.2   5.5.4   5.6.2  node_modules/typescript  1_migracja
 https://jsdoc.app/
 
 tsconfig.json / jsconfig.json
+
+# Declaration .d.ts
+tsc ./src/lib/lib.js --allowJS --declaration --emitDeclarationOnly
+
+lib.d.ts
