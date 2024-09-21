@@ -12,6 +12,7 @@ export default function PlaylistsView() {
   };
 
   // PlaylistDetails({ playlist: playlist })
+  // <PlaylistDetails  playlist={ playlist } />
 
   return (
     <div className="container">

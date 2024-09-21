@@ -9,8 +9,9 @@ type Props = {
 
 // const PlaylistDetails = (props: { playlist: Playlist }) => {
 
-const PlaylistDetails = (props: Props) => {
-  const playlist = props.playlist;
+const PlaylistDetails = ({ playlist }: Props) => {
+  // const playlist = props.playlist;
+  //   const { playlist } = props;
 
   return (
     <div>
