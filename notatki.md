@@ -77,4 +77,8 @@ npm build
 npm ci
 npm start 
 
+# NPM Outdated
+npm outdated
+Package     Current  Wanted  Latest  Location                 Depended by
+typescript    5.6.2   5.5.4   5.6.2  node_modules/typescript  1_migracja
 
