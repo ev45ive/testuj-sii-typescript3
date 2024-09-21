@@ -2,9 +2,13 @@ import express from "express";
 
 const app = express();
 
-const user = process.argv[2] || "Stranger";
+app.use((req, res, next) => {
+  const user = process.argv[2] || "Stranger";
+  // console.log(`Hello ${user}`);
 
-console.log(`Hello ${user}`);
+  req.user = { name: user };
+  next();
+});
 
 app.get("/", (req, res) => {
   res.write(/* html */ `
@@ -16,7 +20,7 @@ app.get("/", (req, res) => {
             <title>Document</title>
         </head>
         <body>
-    <h1> ❤️❤️❤️ Welcome ${user} ❤️❤️❤️</h1>`);
+    <h1> ❤️❤️❤️ Welcome ${req.user.name} ❤️❤️❤️</h1>`);
   res.end();
 });
 

@@ -13,3 +13,14 @@ class NaszaKlasa {
 }
 
 new NaszaKlasa().testowa();
+
+export {};
+
+declare global {
+  interface Window {
+    googleAnaylics: 1;
+    facebookLogin: 1;
+  }
+}
+
+window.googleAnaylics = 1;
