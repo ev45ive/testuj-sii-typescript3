@@ -29,6 +29,8 @@ app.get("/playlists", (req, res) => {
   // Type Casting
   // const name = req.query["name"] as any;
   // const name = req.query["name"] as string;
+
+  // Conversion
   // const name = String(req.query["name"])
 
   // Type Narrowing
@@ -53,7 +55,7 @@ app.get("/", (req, res) => {
             <title>Document</title>
         </head>
         <body>
-    <h1> ❤️❤️❤️ Welcome ${req.user.name} ❤️❤️❤️</h1>`);
+          <h1> ❤️❤️❤️ Welcome ${req.user.name} ❤️❤️❤️</h1>`);
   res.end();
   res.write("");
 });
