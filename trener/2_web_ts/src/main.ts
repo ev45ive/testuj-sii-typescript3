@@ -1,5 +1,15 @@
 console.log("Welcome TS!");
 
-document
-    .getElementById("message")!
-    .innerText = "TypeScript works!";
+document.getElementById("message")!.innerText = "TypeScript works!";
+
+const testowa = () => {
+  throw new Error("Ups..");
+};
+
+class NaszaKlasa {
+  placki = 123;
+
+  testowa = testowa;
+}
+
+new NaszaKlasa().testowa();
