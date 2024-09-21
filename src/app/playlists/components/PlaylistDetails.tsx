@@ -22,11 +22,11 @@ const PlaylistDetails = (props: Props) => {
         </div>
         <div className="grid gap-2">
           <strong>Public</strong>
-          <div>Yes</div>
+          <div>{playlist.public ? "Yes" : "No"}</div>
         </div>
         <div className="grid gap-2">
           <strong>Description</strong>
-          <div>BEest Playlist </div>
+          <div>{playlist.description} </div>
         </div>
       </div>
     </div>
