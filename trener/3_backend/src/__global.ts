@@ -13,6 +13,15 @@ declare global {
   }
 }
 
+declare module "express-session" {
+  interface SessionData {
+    views: number;
+    user: User;
+  }
+}
+
 interface User {
   name: string;
 }
+
+const user: User = { name: "123" };

@@ -15,6 +15,7 @@ app.use((req, res, next) => {
   const user = process.argv[2] || "Stranger";
   // console.log(`Hello ${user}`);
 
+  req.session.views
   req.session.user = { name: user };
   req.user = { name: user };
   next();
