@@ -36,8 +36,10 @@ app.get("/playlists", (req, res) => {
     res.json(playlists.filter((p) => p.name.includes(name)));
   } else if (!name) {
     res.json(playlists);
-  } else {
+  } else if (name) {
     res.json({ message: "Invalid query" });
+  } else {
+    name; // never
   }
 });
 
