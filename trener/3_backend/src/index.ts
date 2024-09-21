@@ -23,6 +23,11 @@ app.use((req, res, next) => {
 import playlists from "../data/playlists.json";
 
 app.get("/playlists", (req, res) => {
+
+  const name = req.query['name']
+
+  res.json(playlists.filter(p => p.name.includes(name)));
+  
   res.json(playlists);
 });
 
