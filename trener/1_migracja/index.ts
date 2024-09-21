@@ -3,7 +3,9 @@ function add(a: number, b: number) {
 }
 
 
-add(1,1)
+add(1,1) // OK 
+
+// add('1', 1) // Errors but still compiles
 
 // Argument of type 'string' is not assignable to parameter of type 'number'. ts(2345)
 // add('ala','makota')
