@@ -36,6 +36,9 @@ app.get("/", (req, res) => {
   res.write("");
 });
 
-app.listen(8080, () => {
+const PORT = process.env['PORT'] || 8080;
+const HOST = process.env['HOST'] || 'localhost'
+
+app.listen(PORT, () => {
   console.log("Server is running on http://localhost:8080/ <3 <3 <3");
 });
