@@ -1,4 +1,4 @@
-
+// @ts-check
 
 /**
  * Dividing numbers
@@ -8,5 +8,12 @@
  */
 export const divide = (a, b) => a / b;
 
-// ???
-export const multiply = (a, b) => a * b;
+export const multiply = (/** @type {number} */ a, /** @type {number} */ b) =>
+  a * b;
+
+// @ts-ignore
+divide("2", "1");
+
+
+// @ts-expect-error
+divide("2", "1");
