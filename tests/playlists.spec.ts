@@ -1,3 +1,4 @@
+import { mockPlaylists } from "@/app/playlists/mockPlaylists";
 import { test, expect } from "@playwright/test";
 
 test("Follow Playlists link", async ({ page }) => {
@@ -25,11 +26,12 @@ test("should show selected playlist", async ({ page }) => {
 
   const playlistItems = page.locator("[data-testid=playlist-item]");
 
-  await expect(playlistItems.first()).toContainText("Playlist 123");
+  const mock = mockPlaylists[0];
+  const selection = playlistItems.getByText(mock.name);
 
-  await playlistItems.first().click();
+  await selection.click();
 
-  const playlistName = page.getByTestId('playlist-details-name')
-  await expect(playlistName).toHaveText('Playlist 123');
- 
+  const playlistName = page.getByTestId("playlist-details-name");
+
+  await expect(playlistName).toHaveText(mock.name);
 });
