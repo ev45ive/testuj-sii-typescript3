@@ -9,26 +9,12 @@ import { mockPlaylists } from "./mockPlaylists";
 
 export default function PlaylistsView() {
   const playlists = mockPlaylists;
-
-  const [selected, setSelected] = useState(mockPlaylists[0]);
+  // const [selected, setSelected] = useState<Playlist | undefined>( undefined );
+  const [selected, setSelected] = useState<Playlist>();
 
   const selectPlaylistById = (id: string) => {
     const selected = playlists.find((p) => p.id == id);
-
-    // Casting
-    // setSelected(selected as any);
-    // setSelected(selected as Playlist);
-    // setSelected(selected!);
-    // setSelected({} as Playlist);
-
-    // Type Narrowing
-    if (selected) {
-      setSelected(selected); // Playlist
-    } else if (!selected) {
-      selected; // undefined
-    } else {
-      selected; // never
-    }
+    setSelected(selected);
   };
 
   return (
@@ -39,7 +25,7 @@ export default function PlaylistsView() {
         <div>
           <PlaylistsList
             items={playlists}
-            selectedId={selected.id}
+            selectedId={selected?.id}
             onSelect={selectPlaylistById}
           />
         </div>

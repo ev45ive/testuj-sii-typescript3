@@ -10,7 +10,9 @@ type NamedItem = {
 
 type Props = {
   items: NamedItem[];
-  selectedId: string;
+  // selectedId: string;
+  // selectedId: string | undefined;
+  selectedId?: string;
   onSelect: (id: string) => void;
 };
 
