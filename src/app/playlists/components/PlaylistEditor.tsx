@@ -12,19 +12,19 @@ const PlaylistEditor = ({ playlist }: Props) => {
       <div className="grid gap-5">
         <div className="grid gap-2">
           <label>Name</label>
-          <input type="text" value="Playlist 001" className="text-black" />
+          <input type="text" value={playlist.name} className="text-black" />
         </div>
 
         <div className="grid gap-2">
           <label>
-            <input type="checkbox" className="me-2" />
+            <input type="checkbox" className="me-2" checked={playlist.public} />
             Public
           </label>
         </div>
 
         <div className="grid gap-2">
           <label>Desciption</label>
-          <textarea className="text-black" />
+          <textarea className="text-black" value={playlist.description}/>
         </div>
       </div>
     </div>

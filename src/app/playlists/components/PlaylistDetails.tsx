@@ -8,7 +8,6 @@ type Props = {
   playlist: Playlist;
 };
 
-
 const PlaylistDetails = ({ playlist }: Props) => {
   return (
     <div>
@@ -20,7 +19,13 @@ const PlaylistDetails = ({ playlist }: Props) => {
         </div>
         <div className="grid gap-2">
           <strong>Public</strong>
-          <div>{playlist.public ? "Yes" : "No"}</div>
+          <div
+            style={{
+              color: playlist.public ? "green" : "red",
+            }}
+          >
+            {playlist.public ? "Yes" : "No"}
+          </div>
         </div>
         <div className="grid gap-2">
           <strong>Description</strong>
