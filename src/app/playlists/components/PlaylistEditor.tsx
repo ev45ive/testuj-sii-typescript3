@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, MouseEventHandler } from "react";
 import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
@@ -15,9 +15,7 @@ const PlaylistEditor = ({ playlist }: Props) => {
     console.log("e.currentTarget.value", event.currentTarget.value);
   };
 
-  const publicCheck = (event: ???) : ??? => {
-
-  }
+  const publicCheck: MouseEventHandler<HTMLInputElement> = (event) => {};
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
@@ -36,7 +34,12 @@ const PlaylistEditor = ({ playlist }: Props) => {
 
         <div className="grid gap-2">
           <label>
-            <input type="checkbox" className="me-2" checked={playlist.public} onClick={publicCheck} />
+            <input
+              type="checkbox"
+              className="me-2"
+              checked={playlist.public}
+              onClick={publicCheck}
+            />
             Public
           </label>
         </div>
