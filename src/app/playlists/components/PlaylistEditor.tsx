@@ -5,6 +5,7 @@ import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
 
+ 
 const PlaylistEditor = ({ playlist }: Props) => {
   // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
   // const eventHandler = (e: 'mój lewy but') => {
@@ -15,7 +16,11 @@ const PlaylistEditor = ({ playlist }: Props) => {
     console.log("e.currentTarget.value", event.currentTarget.value);
   };
 
-  const publicCheck: MouseEventHandler<HTMLInputElement> = (event) => {};
+  const publicCheck: MouseEventHandler<HTMLInputElement> = (event) => {
+    console.log("test");
+  };
+
+
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
