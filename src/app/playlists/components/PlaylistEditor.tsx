@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { ChangeEvent } from "react";
 import { Playlist } from "../../model/Playlist";
@@ -6,12 +6,14 @@ import { Playlist } from "../../model/Playlist";
 type Props = { playlist: Playlist };
 
 const PlaylistEditor = ({ playlist }: Props) => {
-
   // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
   // const eventHandler = (e: 'mój lewy but') => {
   // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    // console.log("e.currentTarget.value", e.currentTarget.value);
-  // };
+
+  // {event => {}}  -> Ctrl+. -> Extract to const
+  const eventHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    console.log("e.currentTarget.value", event.currentTarget.value);
+  };
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
@@ -23,9 +25,7 @@ const PlaylistEditor = ({ playlist }: Props) => {
             type="text"
             defaultValue={playlist.name}
             className="text-black"
-            onChange={event => {
-              
-            }}
+            onChange={eventHandler}
           />
           <div className="text-end">0 / 100</div>
         </div>
