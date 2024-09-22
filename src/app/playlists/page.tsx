@@ -13,8 +13,22 @@ export default function PlaylistsView() {
   const [selected, setSelected] = useState(mockPlaylists[0]);
 
   const selectPlaylistById = (id: string) => {
-    const selected = playlists.find((p) => p.id == id)!;
-    setSelected(selected);
+    const selected = playlists.find((p) => p.id == id);
+
+    // Casting
+    // setSelected(selected as any);
+    // setSelected(selected as Playlist);
+    // setSelected(selected!);
+    // setSelected({} as Playlist);
+
+    // Type Narrowing
+    if (selected) {
+      setSelected(selected); // Playlist
+    } else if (!selected) {
+      selected; // undefined
+    } else {
+      selected; // never
+    }
   };
 
   return (
@@ -31,9 +45,8 @@ export default function PlaylistsView() {
         </div>
         <div>
           <PlaylistDetails playlist={selected} />
-          
-          {false && <PlaylistEditor playlist={selected} />}
 
+          {false && <PlaylistEditor playlist={selected} />}
         </div>
       </div>
     </div>
