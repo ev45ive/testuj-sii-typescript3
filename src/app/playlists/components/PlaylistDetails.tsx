@@ -5,10 +5,19 @@ import { Playlist } from "@/app/model/Playlist";
 import React from "react";
 
 type Props = {
-  playlist: Playlist;
+  playlist?: Playlist;
 };
 
 const PlaylistDetails = ({ playlist }: Props) => {
+  // Function (Type) Guard  - if + return
+  if (!playlist) {
+    return (
+      <div className="p-5 border border-solid border-white">
+        No playlist selected
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* .grid.gap-5>.grid.gap-2*3>strong{Name}+div{Playlist $$$} */}

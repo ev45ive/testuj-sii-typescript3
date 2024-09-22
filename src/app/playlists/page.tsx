@@ -30,9 +30,11 @@ export default function PlaylistsView() {
           />
         </div>
         <div>
+          {/* {selected && <PlaylistDetails playlist={selected} />} */}
+
           <PlaylistDetails playlist={selected} />
 
-          {false && <PlaylistEditor playlist={selected} />}
+          {/* {false && <PlaylistEditor playlist={selected} />} */}
         </div>
       </div>
     </div>
