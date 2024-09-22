@@ -4,6 +4,7 @@
         "dsznajder.es7-react-js-snippets",
         "quicktype.quicktype",
         "esbenp.prettier-vscode",
-        "pulkitgangwar.nextjs-snippets"
+        "pulkitgangwar.nextjs-snippets",
+        "ms-playwright.playwright"
     ]
 }
