@@ -9,9 +9,9 @@ const PlaylistEditor = ({ playlist }: Props) => {
 
   // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
   // const eventHandler = (e: 'mój lewy but') => {
-  const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
     // console.log("e.currentTarget.value", e.currentTarget.value);
-  };
+  // };
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
@@ -23,7 +23,9 @@ const PlaylistEditor = ({ playlist }: Props) => {
             type="text"
             defaultValue={playlist.name}
             className="text-black"
-            onChange={eventHandler}
+            onChange={event => {
+              
+            }}
           />
           <div className="text-end">0 / 100</div>
         </div>
