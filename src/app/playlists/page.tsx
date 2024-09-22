@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Playlist } from "../model/Playlist";
 import PlaylistDetails from "./components/PlaylistDetails";
 import PlaylistEditor from "./components/PlaylistEditor";
@@ -7,15 +8,13 @@ import PlaylistsList from "./components/PlaylistList";
 import { mockPlaylists } from "./mockPlaylists";
 
 export default function PlaylistsView() {
-  // const playlists = mockPlaylists as (Playlist & {placki:123})[]
   const playlists = mockPlaylists;
-  const selected = playlists[0];
+
+  const [selected, setSelected] = useState(mockPlaylists[0]);
 
   const selectPlaylistById = (id: string) => {
     const selected = playlists.find((p) => p.id == id)!;
-    console.log("selected", selected);
-
-    // return; // void
+    setSelected(selected);
   };
 
   return (
@@ -26,14 +25,15 @@ export default function PlaylistsView() {
         <div>
           <PlaylistsList
             items={playlists}
-            selectedId={"234"}
+            selectedId={selected.id}
             onSelect={selectPlaylistById}
           />
         </div>
         <div>
           <PlaylistDetails playlist={selected} />
+          
+          {false && <PlaylistEditor playlist={selected} />}
 
-          <PlaylistEditor playlist={selected} />
         </div>
       </div>
     </div>

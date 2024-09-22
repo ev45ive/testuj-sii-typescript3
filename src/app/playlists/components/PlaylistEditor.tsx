@@ -1,18 +1,20 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, MouseEventHandler, useState } from "react";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  MouseEventHandler,
+  useState,
+} from "react";
 import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
 
-const PlaylistEditor = ( {playlist}: Props) => {
-  
-  // const [x,y] = useState<Playlist>()
-  const [ playlistName, setPlaylistName ] = useState(playlist.name)
-  
+const PlaylistEditor = ({ playlist }: Props) => {
+  const [playlistName, setPlaylistName] = useState(playlist.name);
+
   const eventHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setPlaylistName(event.currentTarget.value)
-    ;
+    setPlaylistName(event.currentTarget.value);
   };
 
   return (
