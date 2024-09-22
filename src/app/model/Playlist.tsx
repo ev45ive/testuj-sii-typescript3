@@ -5,11 +5,6 @@ export interface Playlist {
   description: string;
 }
 
-const arr1: number[] = [1, 2, 3];
-// arr.push('23') // error
-const arr2: string[] = ["a", "b" /*  123 - error */];
-const arr3: Array<string> = ["a", "b" /*  123 - error */];
-
 type Box = { value: any };
 // type stringBox = { value: string };
 // type numberBox = { value: number };
@@ -44,3 +39,19 @@ function identity<T>(item: T): T {
 }
 identity("123").search;
 identity(123).toExponential;
+
+// Generics + Type Inference - function takeFirst<T>(arr: Array<T>): T
+
+const arr1: number[] = [1, 2, 3];
+const arr2 = ["a", "b" /*  123 - error */]; // string[]
+const arr3: Array<string> = ["a", "b" /*  123 - error */];
+
+function takeFirst<T>(arr: Array<T>) {
+  return arr[0];
+}
+
+const res1 = takeFirst<string>(["123"]); // string
+// const res2 = takeFirst() // unknown[]
+// const res2 = takeFirst([]) // never[]
+const res2 = takeFirst([1, 2, 3, 4]);
+const res3: "banana" = takeFirst(["banana", "banana", "banana"]);
