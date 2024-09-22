@@ -55,3 +55,23 @@ const res1 = takeFirst<string>(["123"]); // string
 // const res2 = takeFirst([]) // never[]
 const res2 = takeFirst([1, 2, 3, 4]);
 const res3: "banana" = takeFirst(["banana", "banana", "banana"]);
+
+
+// Generic class / interface
+
+interface Collection{
+  add(x: ?): void
+  get() : ? ??
+}
+
+class Queue implements Collection{} // FIFO
+class Stack implements Collection{} // FILO
+
+
+// // end
+// [].push(el); 
+// [].pop();
+
+// // start
+// [].unshift(el) 
+// [].shift();
