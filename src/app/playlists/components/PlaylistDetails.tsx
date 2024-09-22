@@ -6,9 +6,10 @@ import React from "react";
 
 type Props = {
   playlist?: Playlist;
+  onEdit(): void;
 };
 
-const PlaylistDetails = ({ playlist }: Props) => {
+const PlaylistDetails = ({ playlist, onEdit }: Props) => {
   // Function (Type) Guard  - if + return
   if (!playlist) {
     return (
@@ -39,6 +40,10 @@ const PlaylistDetails = ({ playlist }: Props) => {
         <div className="grid gap-2">
           <strong>Description</strong>
           <div>{playlist.description} </div>
+        </div>
+
+        <div className="flex">
+          <button onClick={onEdit}>Edit</button>
         </div>
       </div>
     </div>

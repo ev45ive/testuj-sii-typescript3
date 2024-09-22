@@ -15,11 +15,19 @@ const EMPTY_PLAYLIST: Playlist = {
   description: "",
 };
 
-type Props = { playlist?: Playlist };
+type Props = {
+  playlist?: Playlist;
+  onCancel(): void;
+  onSave(playlist: Playlist): void;
+};
 
-const PlaylistEditor = ({ playlist = EMPTY_PLAYLIST }: Props) => {
-  // playlist = playlist || EMPTY_PLAYLIST; // Narrow undefined to Default  
-  // playlist = playlist ?? EMPTY_PLAYLIST; // Default  
+const PlaylistEditor = ({
+  playlist = EMPTY_PLAYLIST,
+  onCancel,
+  onSave,
+}: Props) => {
+  // playlist = playlist || EMPTY_PLAYLIST; // Narrow undefined to Default
+  // playlist = playlist ?? EMPTY_PLAYLIST; // Default
 
   const [playlistName, setPlaylistName] = useState(playlist.name);
 
@@ -54,12 +62,22 @@ const PlaylistEditor = ({ playlist = EMPTY_PLAYLIST }: Props) => {
           <textarea
             className="text-black"
             value={playlist.description}
-            // onInput={ (e: FormEvent<HTMLTextAreaElement> ) => {}}
-            // onInput={ (e: React.SyntheticEvent<HTMLTextAreaElement> ) => {}}
-            // onInput={ (e: React.SyntheticEvent<HTMLElement> ) => {}}
-            // onInput={ (e: React.SyntheticEvent ) => {}}
             onInput={(e) => {}}
           />
+        </div>
+
+        <div className="flex justify-between">
+          <button onClick={onCancel}>Cancel</button>
+          <button
+            onClick={() => {
+              onSave({
+                ...playlist,
+                name: playlistName,
+              });
+            }}
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>

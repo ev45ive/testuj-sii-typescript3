@@ -7,14 +7,24 @@ import PlaylistEditor from "./components/PlaylistEditor";
 import PlaylistsList from "./components/PlaylistList";
 import { mockPlaylists } from "./mockPlaylists";
 
+const updatePlaylists = (draft: Playlist) => (playlists: Playlist[]) =>
+  playlists.map((p) => (p.id == draft.id ? draft : p));
+
 export default function PlaylistsView() {
-  const playlists = mockPlaylists;
-  // const [selected, setSelected] = useState<Playlist | undefined>( undefined );
+  const [playlists, setPlaylists] = useState(mockPlaylists);
   const [selected, setSelected] = useState<Playlist>();
+
+  const [mode, setMode] = useState<"details" | "editor">("details");
 
   const selectPlaylistById = (id: string) => {
     const selected = playlists.find((p) => p.id == id);
     setSelected(selected);
+  };
+
+  const savePlaylist = (draft: Playlist): void => {
+    setPlaylists(updatePlaylists(draft));
+    setSelected(draft);
+    setMode("details");
   };
 
   return (
@@ -30,11 +40,20 @@ export default function PlaylistsView() {
           />
         </div>
         <div>
-          {/* {selected && <PlaylistDetails playlist={selected} />} */}
+          {mode === "details" && (
+            <PlaylistDetails
+              playlist={selected}
+              onEdit={() => setMode("editor")}
+            />
+          )}
 
-          <PlaylistDetails playlist={selected} />
-
-          <PlaylistEditor playlist={selected} />
+          {mode === "editor" && (
+            <PlaylistEditor
+              playlist={selected}
+              onCancel={() => setMode("details")}
+              onSave={savePlaylist}
+            />
+          )}
         </div>
       </div>
     </div>
