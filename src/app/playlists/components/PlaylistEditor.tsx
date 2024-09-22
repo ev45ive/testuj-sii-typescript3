@@ -4,7 +4,31 @@ import { Playlist } from "../../model/Playlist";
 type Props = { playlist: Playlist };
 
 const PlaylistEditor = ({ playlist }: Props) => {
-  return <div>PlaylistEditor {playlist.name}</div>;
+
+
+  return (
+    <div id={`playlist_${playlist.id}`} title={playlist.name}>
+      {/* .grid.gap-5>.grid.gap-2*3>label{Name}+input[value="Playlist $$$"] */}
+      <div className="grid gap-5">
+        <div className="grid gap-2">
+          <label>Name</label>
+          <input type="text" value="Playlist 001" className="text-black" />
+        </div>
+
+        <div className="grid gap-2">
+          <label>
+            <input type="checkbox" className="me-2" />
+            Public
+          </label>
+        </div>
+
+        <div className="grid gap-2">
+          <label>Desciption</label>
+          <textarea className="text-black" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PlaylistEditor;
