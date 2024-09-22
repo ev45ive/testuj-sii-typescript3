@@ -30,3 +30,17 @@ let randomBox = {} as TypedBox<string> | TypedBox<number>;
 if (typeof randomBox.value === "string") {
   randomBox.value; // string
 }
+
+// Useless generics
+declare function parse<T>(text: string): T;
+declare function seralize<T>(obj: T): string;
+
+// parse() as T
+// seralize(any):string
+
+// Useful Generics = min 2T
+function identity<T>(item: T): T {
+  return item;
+}
+identity("123").search;
+identity(123).toExponential;
