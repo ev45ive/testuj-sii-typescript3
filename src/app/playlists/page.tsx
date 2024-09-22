@@ -34,7 +34,7 @@ export default function PlaylistsView() {
 
           <PlaylistDetails playlist={selected} />
 
-          {/* {false && <PlaylistEditor playlist={selected} />} */}
+          <PlaylistEditor playlist={selected} />
         </div>
       </div>
     </div>

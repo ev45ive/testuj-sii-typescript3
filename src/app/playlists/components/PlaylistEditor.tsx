@@ -8,9 +8,19 @@ import React, {
 } from "react";
 import { Playlist } from "../../model/Playlist";
 
-type Props = { playlist: Playlist };
+const EMPTY_PLAYLIST: Playlist = {
+  id: "",
+  name: "",
+  public: false,
+  description: "",
+};
 
-const PlaylistEditor = ({ playlist }: Props) => {
+type Props = { playlist?: Playlist };
+
+const PlaylistEditor = ({ playlist = EMPTY_PLAYLIST }: Props) => {
+  // playlist = playlist || EMPTY_PLAYLIST; // Narrow undefined to Default  
+  // playlist = playlist ?? EMPTY_PLAYLIST; // Default  
+
   const [playlistName, setPlaylistName] = useState(playlist.name);
 
   const eventHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
