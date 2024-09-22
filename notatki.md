@@ -131,3 +131,8 @@ npx create-next-app@latest
 √ Would you like to use App Router? (recommended) ... No / Yes
 √ Would you like to customize the default import alias (@/*)? ... No / Yes
 Creating a new Next.js app in C:\Projects\testuj-sii-typescript3\my-app.
+
+
+# VS Code extension - Task explorer
+https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer
+
