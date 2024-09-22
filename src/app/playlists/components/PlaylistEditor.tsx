@@ -15,6 +15,10 @@ const PlaylistEditor = ({ playlist }: Props) => {
     console.log("e.currentTarget.value", event.currentTarget.value);
   };
 
+  const publicCheck = (event: ???) : ??? => {
+
+  }
+
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
       {/* .grid.gap-5>.grid.gap-2*3>label{Name}+input[value="Playlist $$$"] */}
@@ -32,7 +36,7 @@ const PlaylistEditor = ({ playlist }: Props) => {
 
         <div className="grid gap-2">
           <label>
-            <input type="checkbox" className="me-2" checked={playlist.public} />
+            <input type="checkbox" className="me-2" checked={playlist.public} onClick={publicCheck} />
             Public
           </label>
         </div>
