@@ -1,22 +1,18 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, MouseEventHandler } from "react";
+import React, { ChangeEvent, FormEvent, MouseEventHandler, useState } from "react";
 import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
 
-const PlaylistEditor = ({ playlist }: Props) => {
-  // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
-  // const eventHandler = (e: 'mój lewy but') => {
-  // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
-
-  // {event => {}}  -> Ctrl+. -> Extract to const
+const PlaylistEditor = ( {playlist}: Props) => {
+  
+  // const [x,y] = useState<Playlist>()
+  const [ playlistName, setPlaylistName ] = useState(playlist.name)
+  
   const eventHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    console.log("e.currentTarget.value", event.currentTarget.value);
-  };
-
-  const publicCheck: MouseEventHandler<HTMLInputElement> = (event) => {
-    console.log("test");
+    setPlaylistName(event.currentTarget.value)
+    ;
   };
 
   return (
@@ -27,21 +23,16 @@ const PlaylistEditor = ({ playlist }: Props) => {
           <label>Name</label>
           <input
             type="text"
-            defaultValue={playlist.name}
+            defaultValue={playlistName}
             className="text-black"
             onChange={eventHandler}
           />
-          <div className="text-end">0 / 100</div>
+          <div className="text-end">{playlistName.length} / 100</div>
         </div>
 
         <div className="grid gap-2">
           <label>
-            <input
-              type="checkbox"
-              className="me-2"
-              checked={playlist.public}
-              onClick={publicCheck}
-            />
+            <input type="checkbox" className="me-2" checked={playlist.public} />
             Public
           </label>
         </div>
@@ -55,7 +46,7 @@ const PlaylistEditor = ({ playlist }: Props) => {
             // onInput={ (e: React.SyntheticEvent<HTMLTextAreaElement> ) => {}}
             // onInput={ (e: React.SyntheticEvent<HTMLElement> ) => {}}
             // onInput={ (e: React.SyntheticEvent ) => {}}
-            onInput={ (e) => {}}
+            onInput={(e) => {}}
           />
         </div>
       </div>
