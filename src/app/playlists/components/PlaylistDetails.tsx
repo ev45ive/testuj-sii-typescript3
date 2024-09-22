@@ -25,7 +25,7 @@ const PlaylistDetails = ({ playlist, onEdit }: Props) => {
       <div className="grid gap-5">
         <div className="grid gap-2">
           <strong>Name</strong>
-          <div>{playlist.name}</div>
+          <div data-testid="playlist-details-name">{playlist.name}</div>
         </div>
         <div className="grid gap-2">
           <strong>Public</strong>
