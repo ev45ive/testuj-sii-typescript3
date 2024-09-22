@@ -1,7 +1,6 @@
 "use client";
 
 // tsrafce
-import { Playlist } from "@/app/model/Playlist";
 import React from "react";
 
 type NamedItem = {
