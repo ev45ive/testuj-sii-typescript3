@@ -52,7 +52,7 @@ const PlaylistEditor = ({
 
         <div className="grid gap-2">
           <label>
-            <input type="checkbox" className="me-2" checked={playlist.public} />
+            <input type="checkbox" className="me-2" defaultChecked={playlist.public} />
             Public
           </label>
         </div>
