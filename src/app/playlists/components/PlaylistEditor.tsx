@@ -1,11 +1,10 @@
 "use client";
 
-import React, { ChangeEvent, MouseEventHandler } from "react";
+import React, { ChangeEvent, FormEvent, MouseEventHandler } from "react";
 import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
 
- 
 const PlaylistEditor = ({ playlist }: Props) => {
   // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
   // const eventHandler = (e: 'mój lewy but') => {
@@ -19,8 +18,6 @@ const PlaylistEditor = ({ playlist }: Props) => {
   const publicCheck: MouseEventHandler<HTMLInputElement> = (event) => {
     console.log("test");
   };
-
-
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
@@ -51,7 +48,15 @@ const PlaylistEditor = ({ playlist }: Props) => {
 
         <div className="grid gap-2">
           <label>Desciption</label>
-          <textarea className="text-black" value={playlist.description} />
+          <textarea
+            className="text-black"
+            value={playlist.description}
+            // onInput={ (e: FormEvent<HTMLTextAreaElement> ) => {}}
+            // onInput={ (e: React.SyntheticEvent<HTMLTextAreaElement> ) => {}}
+            // onInput={ (e: React.SyntheticEvent<HTMLElement> ) => {}}
+            // onInput={ (e: React.SyntheticEvent ) => {}}
+            onInput={ (e) => {}}
+          />
         </div>
       </div>
     </div>

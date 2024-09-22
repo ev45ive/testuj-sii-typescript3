@@ -15,7 +15,6 @@ const PlaylistList = ({ playlists }: Props) => {
         ))}
       </div>
 
-      {/* <pre>{JSON.stringify(playlists, null, 2)}</pre> */}
     </div>
   );
 };
