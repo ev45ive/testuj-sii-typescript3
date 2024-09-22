@@ -1,10 +1,17 @@
-import React from "react";
+'use client';
+
+import React, { ChangeEvent } from "react";
 import { Playlist } from "../../model/Playlist";
 
 type Props = { playlist: Playlist };
 
 const PlaylistEditor = ({ playlist }: Props) => {
 
+  // const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  // const eventHandler = (e: 'mój lewy but') => {
+  const eventHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    // console.log("e.currentTarget.value", e.currentTarget.value);
+  };
 
   return (
     <div id={`playlist_${playlist.id}`} title={playlist.name}>
@@ -12,7 +19,13 @@ const PlaylistEditor = ({ playlist }: Props) => {
       <div className="grid gap-5">
         <div className="grid gap-2">
           <label>Name</label>
-          <input type="text" value={playlist.name} className="text-black" />
+          <input
+            type="text"
+            defaultValue={playlist.name}
+            className="text-black"
+            onChange={eventHandler}
+          />
+          <div className="text-end">0 / 100</div>
         </div>
 
         <div className="grid gap-2">
@@ -24,7 +37,7 @@ const PlaylistEditor = ({ playlist }: Props) => {
 
         <div className="grid gap-2">
           <label>Desciption</label>
-          <textarea className="text-black" value={playlist.description}/>
+          <textarea className="text-black" value={playlist.description} />
         </div>
       </div>
     </div>
