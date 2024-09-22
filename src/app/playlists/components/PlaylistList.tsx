@@ -1,18 +1,25 @@
+"use client";
+
 // tsrafce
 import { Playlist } from "@/app/model/Playlist";
 import React from "react";
 
-type Props = {
-  playlists: Playlist[];
-  // ????
-  // ???
+type NamedItem = {
+  id: string;
+  name: string;
 };
 
-const PlaylistList = ({ playlists, onSelect, selectedId }: Props) => {
+type Props = {
+  items: NamedItem[];
+  selectedId: string;
+  onSelect: (id: string) => void;
+};
+
+const NamedItemsList = ({ items, onSelect, selectedId }: Props) => {
   return (
     <div>
       <div className="divide-y divide-gray-300 divide-solid ">
-        {playlists.map((playlist, index) => (
+        {items.map((playlist, index) => (
           <p
             className={`px-2 py-5 ${
               selectedId == playlist.id ? "bg-slate-600 text-black" : ""
@@ -30,4 +37,4 @@ const PlaylistList = ({ playlists, onSelect, selectedId }: Props) => {
   );
 };
 
-export default PlaylistList;
+export default NamedItemsList;

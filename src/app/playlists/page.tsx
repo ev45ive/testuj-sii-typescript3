@@ -1,16 +1,21 @@
+"use client";
+
 import { Playlist } from "../model/Playlist";
 import PlaylistDetails from "./components/PlaylistDetails";
 import PlaylistEditor from "./components/PlaylistEditor";
-import PlaylistList from "./components/PlaylistList";
+import PlaylistsList from "./components/PlaylistList";
 import { mockPlaylists } from "./mockPlaylists";
 
 export default function PlaylistsView() {
-  const playlists: Playlist[] = mockPlaylists;
+  // const playlists = mockPlaylists as (Playlist & {placki:123})[]
+  const playlists = mockPlaylists;
   const selected = playlists[0];
 
   const selectPlaylistById = (id: string) => {
     const selected = playlists.find((p) => p.id == id)!;
     console.log("selected", selected);
+
+    // return; // void
   };
 
   return (
@@ -19,8 +24,8 @@ export default function PlaylistsView() {
 
       <div className="grid grid-cols-2 gap-5">
         <div>
-          <PlaylistList
-            playlists={playlists}
+          <PlaylistsList
+            items={playlists}
             selectedId={"234"}
             onSelect={selectPlaylistById}
           />
