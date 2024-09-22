@@ -6,15 +6,15 @@ export const mockPlaylists = [
     description: "Awesome playlist",
   },
   {
-    id: "123",
-    name: "Playlist 123",
+    id: "234",
+    name: "Playlist 234",
     public: true,
-    description: "Awesome playlist",
+    description: "Best playlist",
   },
   {
-    id: "123",
-    name: "Playlist 123",
+    id: "345",
+    name: "Playlist 345",
     public: true,
-    description: "Awesome playlist",
+    description: "Cool playlist",
   },
 ];
