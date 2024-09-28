@@ -47,7 +47,7 @@ type Keys = "id" | "name" | "images";
 //   [key in K]: T[key];
 // };
 
-type Album = Pick<AlbumResponse, "id" | "name" | "images">;
+export type Album = Pick<AlbumResponse, "id" | "name" | "images">;
 
 type AlbumDraft = Partial<Omit<AlbumResponse,'id'|'images'|"tracks">>
 
