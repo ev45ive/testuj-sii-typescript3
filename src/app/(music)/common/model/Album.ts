@@ -5,15 +5,15 @@ export interface AlbumSearchResponse {
     albums: PagingObject<AlbumResponse>
 }
 
-export interface AlbumResponse {
+export interface AlbumResponse extends Album {
+    // id:                     string;
+    // images:                 Image[];
+    // name:                   string;
     album_type:             string;
     total_tracks:           number;
     available_markets:      string[];
     external_urls:          ExternalUrls;
     href:                   string;
-    id:                     string;
-    images:                 Image[];
-    name:                   string;
     release_date:           string;
     release_date_precision: string;
     restrictions:           Restrictions;
@@ -34,14 +34,12 @@ export interface Entity{
 }
 
 export interface Album extends Entity{
-    images:                 Image[];
+    images: Image[];
 }
 
-export interface Artist {
+export interface Artist extends Entity {
     external_urls: ExternalUrls;
     href:          string;
-    id:            string;
-    name?:         string;
     type:          string;
     uri:           string;
 }
@@ -81,7 +79,7 @@ export interface PagingObject<T> {
     items:    T[];
 }
 
-export interface Track {
+export interface Track extends Entity{
     artists:           Artist[];
     available_markets: string[];
     disc_number:       number;
@@ -89,11 +87,9 @@ export interface Track {
     explicit:          boolean;
     external_urls:     ExternalUrls;
     href:              string;
-    id:                string;
     is_playable:       boolean;
     linked_from:       Artist;
     restrictions:      Restrictions;
-    name:              string;
     preview_url:       string;
     track_number:      number;
     type:              string;
