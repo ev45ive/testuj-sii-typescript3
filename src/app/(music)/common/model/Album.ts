@@ -36,9 +36,7 @@ export interface Entity{
 }
 
 // Indexed Type 
-export type EntityMap = {
-//   '123': Playlist | undefined;
-//   [id: Playlist["id"]]: Playlist | undefined;
+export type PlaylistMap = {
   [id: Playlist["id"]]: Playlist ;
 };
 
@@ -46,6 +44,26 @@ export type EntityMap = {
 // cache['123'] = {id:'123'} as Playlist
 // cache['345']?.id
 
+
+export type TMap<T> = {
+  [id: string]: T ;
+};
+
+export type EntityMap<T extends Entity> = {
+  [id in T['id']]: T ;
+};
+
+
+export interface PagingObject<T> {
+    href:     string;
+    limit:    number;
+    next:     string;
+    offset:   number;
+    previous: string;
+    total:    number;
+    items:    T[];
+}
+type AlbumsPage = PagingObject<Album>
 
 
 export interface Album extends Entity{
@@ -83,17 +101,6 @@ export interface Image {
 export interface Restrictions {
     reason: string;
 }
-
-export interface PagingObject<T> {
-    href:     string;
-    limit:    number;
-    next:     string;
-    offset:   number;
-    previous: string;
-    total:    number;
-    items:    T[];
-}
-
 export interface Track extends Entity{
     artists:           Artist[];
     available_markets: string[];
