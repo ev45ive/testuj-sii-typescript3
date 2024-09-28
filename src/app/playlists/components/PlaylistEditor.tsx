@@ -36,7 +36,9 @@ const PlaylistEditor = ({
   };
 
   return (
-    <div id={`playlist_${playlist.id}`} title={playlist.name}>
+    <div 
+    data-testid="playlist_details"
+    id={`playlist_${playlist.id}`} title={playlist.name}>
       {/* .grid.gap-5>.grid.gap-2*3>label{Name}+input[value="Playlist $$$"] */}
       <div className="grid gap-5">
         <div className="grid gap-2">
