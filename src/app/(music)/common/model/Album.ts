@@ -7,10 +7,10 @@ export interface AlbumSearchResponse {
     albums: PagingObject<AlbumResponse>
 }
 
-export interface AlbumResponse extends Album {
-    // id:                     string;
-    // images:                 Image[];
-    // name:                   string;
+export interface AlbumResponse  {
+    id:                     string;
+    images:                 Image[];
+    name:                   string;
     album_type:             string;
     total_tracks:           number;
     available_markets:      string[];
@@ -29,6 +29,31 @@ export interface AlbumResponse extends Album {
     popularity:             number;
     tracks:                 PagingObject<Track>;
 }
+
+// interface Album{
+//     id:                     string;
+//     name:                   string;
+//     images:                 Image[];
+// }
+
+type AlbumId = AlbumResponse["id"];
+type AlbumKeys = keyof AlbumResponse;
+type Keys = "id" | "name" | "images";
+
+// export type PartialAlbum<K extends string> = {
+// export type Pick<T, K extends keyof T> = {
+//   // [key in 'id' | 'name'| 'images']: string
+//   // [key in K]: string
+//   [key in K]: T[key];
+// };
+
+type Album = Pick<AlbumResponse, "id" | "name" | "images">;
+
+type AlbumDraft = Partial<Omit<AlbumResponse,'id'|'images'|"tracks">>
+
+// export interface Album extends Entity{
+//     images: Image[];
+// }
 
 export interface Entity{
     id:                     string;
@@ -66,9 +91,6 @@ export interface PagingObject<T> {
 type AlbumsPage = PagingObject<Album>
 
 
-export interface Album extends Entity{
-    images: Image[];
-}
 
 export interface Artist extends Entity {
     external_urls: ExternalUrls;
