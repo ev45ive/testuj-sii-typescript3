@@ -34,6 +34,7 @@ test("should show selected playlist", async ({ page }) => {
 
   await selectPlaylistOnList(page, mockPlaylists[2].name);
   await assertPlaylistDetails(page, mockPlaylists[2]);
+  
 });
 
 // Steps Definition:
