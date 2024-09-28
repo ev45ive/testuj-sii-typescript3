@@ -8,6 +8,7 @@ test.describe("Playlists Page Object", () => {
     await pom.loadPage();
     await pom.countListItems(3);
 
+
     const selection = await pom.selectItemByName("Playlist 123");
   });
 });
@@ -18,6 +19,11 @@ class PlaylistsPageObject {
   listItems = this.page.getByTestId("playlist-item");
   selection?: Locator;
 
+  /**
+   * Select playlist, asserts selection     
+   * @param text 
+   * @returns selected playlist locator
+   */
   async selectItemByName(text: string) {
     this.selection = this.listItems.filter({
       hasText: text,
