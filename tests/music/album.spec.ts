@@ -1,4 +1,4 @@
-import test from "@playwright/test";
+import test, { expect } from "@playwright/test";
 import { APITokenResponse } from "./APITokenResponse";
 import { readFile, writeFile } from "fs/promises";
 
@@ -27,7 +27,19 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("Testing albums", async ({ page }) => {
+  const Title = page.locator("h3");
+  const TracksList = page.locator("css=.list-group");
+  const AlbumCover = page.getByRole("img", { name: "album cover" });
+
   await page.goto("/music/albums/5Tby0U5VndHW0SomYO7Id7");
 
-  await page.waitForTimeout(5000);
+  await expect(Title).toContainText("Testify (Deluxe Edition)");
+  await expect(TracksList.first()).toBeVisible();
+
+  expect(await TracksList.innerHTML()).toMatchSnapshot("tracks-snapshot.html");
+
+  await expect(AlbumCover).toHaveScreenshot({
+    maxDiffPixels: 3,
+  });
+
 });
