@@ -1,4 +1,5 @@
 import test, { expect } from "@playwright/test";
+import { APITokenResponse } from "./APITokenResponse";
 
 test("Page login button get /api/token", async ({ page }) => {
   await page.goto("/");
@@ -45,9 +46,3 @@ test("Test login api token", async ({ page, request }) => {
     ])
   );
 });
-
-export interface APITokenResponse {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-}
