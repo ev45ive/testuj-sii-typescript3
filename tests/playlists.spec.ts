@@ -3,7 +3,7 @@ import { mockPlaylists } from "@/app/playlists/mockPlaylists";
 import { test, expect, Page } from "@playwright/test";
 
 test("Follow Playlists link", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+  await page.goto("/");
 
   const PlaylistsPageLink = page.getByRole("link", { name: /Playlists/ });
   const PlaylistsPageHeader = page
@@ -17,30 +17,32 @@ test("Follow Playlists link", async ({ page }) => {
   await expect(PlaylistsPageHeader).toHaveText("Playlists");
 });
 
-test("Playlists page has title", async ({ page }) => {
-  await page.goto("http://localhost:3000/playlists");
+test.describe("Playlists", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/playlists");
+  });
 
-  const NoPlaylistSelectedAlert = page.getByText("No playlist selected");
-  const PlaylistsPageHeader = page
-    .locator("h1")
-    .filter({ hasText: "Playlists" });
+  test("Playlists page has title", async ({ page }) => {
+    const NoPlaylistSelectedAlert = page.getByText("No playlist selected");
+    const PlaylistsPageHeader = page
+      .locator("h1")
+      .filter({ hasText: "Playlists" });
 
-  await expect(PlaylistsPageHeader).toBeVisible();
-  await expect(NoPlaylistSelectedAlert).toBeVisible();
-});
+    await expect(PlaylistsPageHeader).toBeVisible();
+    await expect(NoPlaylistSelectedAlert).toBeVisible();
+  });
 
-test("should show selected playlist", async ({ page }) => {
-  await page.goto("http://localhost:3000/playlists");
+  test("should show selected playlist", async ({ page }) => {
+    // Scenario Definition:
+    await selectPlaylistOnList(page, mockPlaylists[0].name);
+    await assertPlaylistDetails(page, mockPlaylists[0]);
 
-  // Scenario Definition:
-  await selectPlaylistOnList(page, mockPlaylists[0].name);
-  await assertPlaylistDetails(page, mockPlaylists[0]);
+    await selectPlaylistOnList(page, mockPlaylists[1].name);
+    await assertPlaylistDetails(page, mockPlaylists[1]);
 
-  await selectPlaylistOnList(page, mockPlaylists[1].name);
-  await assertPlaylistDetails(page, mockPlaylists[1]);
-
-  await selectPlaylistOnList(page, mockPlaylists[2].name);
-  await assertPlaylistDetails(page, mockPlaylists[2]);
+    await selectPlaylistOnList(page, mockPlaylists[2].name);
+    await assertPlaylistDetails(page, mockPlaylists[2]);
+  });
 });
 
 // Steps Definition:
@@ -52,7 +54,7 @@ async function assertPlaylistDetails(page: Page, mock: Playlist) {
 
 async function selectPlaylistOnList(page: Page, name: string) {
   const playlistItems = page.locator("[data-testid=playlist-item]");
-  
+
   const selection = playlistItems.getByText(name);
   await selection.click();
 }
