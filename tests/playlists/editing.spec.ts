@@ -3,13 +3,16 @@ import { test, expect, Page } from "@playwright/test";
 test("Opening editor", async ({ page }) => {
   await page.goto("http://localhost:3000/playlists");
 
-  await expect(
-    page.getByTestId("playlist-item").filter({
-      hasText: "Playlist 123",
-    })
-  ).toBeVisible();
-
-  await page.getByText("Playlist 234").click();
+  const PlaylistsItemsList = page.getByTestId("playlist-item");
+  const Playlist123 = PlaylistsItemsList.filter({ hasText: "Playlist 123" });
+  const AnyPlaylistFromList = PlaylistsItemsList.first();
+  
+  await expect(PlaylistsItemsList).toHaveCount(3);
+  await expect(Playlist123).toBeVisible();
+  await expect(AnyPlaylistFromList).toBeVisible();
+  
+  const Playlist234 = PlaylistsItemsList.filter({ hasText: "Playlist 234" });
+  await Playlist234.click();
 
   await expect(page.getByTestId("playlist-details-name")).toContainText(
     "Playlist 234"
