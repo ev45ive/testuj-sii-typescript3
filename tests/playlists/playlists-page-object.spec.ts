@@ -12,6 +12,11 @@ test.describe("Playlists Page Object", () => {
     const selection = await pom.selectItemByName("Playlist 123");
 
     await pom.details.assertPlaylist(mockPlaylists[0]);
+
+    await pom.details.clickEdit();
+    // await pom.editor.assertOpened(); //
+
+    await pom.editor.assertPlaylist(mockPlaylists[0]);
   });
 });
 
@@ -19,6 +24,8 @@ class PlaylistsPageObject {
   constructor(private page: Page, private mocks: Playlist[]) {}
 
   details = new PlaylistDetailsPOM(this.page);
+  editor = new PlaylistEditorPOM(this.page);
+
   listItems = this.page.getByTestId("playlist-item");
   selection = this.listItems.filter({
     has: this.page.getByRole("option", { selected: true }),
@@ -54,6 +61,9 @@ class PlaylistsPageObject {
 }
 
 class PlaylistDetailsPOM {
+  async clickEdit() {
+    await this.editButton.click();
+  }
   constructor(private page: Page) {}
   el = this.page.getByTestId("playlist-details");
 
@@ -84,4 +94,14 @@ class PlaylistEditorPOM {
   });
 
   constructor(private page: Page) {}
+
+  async assertOpened() {
+    await expect(this.el.isVisible()).toBeTruthy();
+  }
+
+  async assertPlaylist(playlist: Playlist) {
+    await expect(this.detailsNameInput).toHaveValue(playlist.name);
+    await expect(this.publicCheckbox).toBeChecked({ checked: playlist.public });
+    await expect(this.description).toContainText(playlist.description);
+  }
 }
