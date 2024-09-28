@@ -10,7 +10,7 @@ export const mockAlbums: Album[] = [
     name: "Album 123",
     images: [
       {
-        url: "http://placekitten.com/300/300",
+        url: "https://place-hold.it/300x300",
         height: 300,
         width: 300,
       },
@@ -21,7 +21,7 @@ export const mockAlbums: Album[] = [
     name: "Album 234",
     images: [
       {
-        url: "http://placekitten.com/300/300",
+        url: "https://place-hold.it/300x300",
         height: 300,
         width: 300,
       },
@@ -32,7 +32,7 @@ export const mockAlbums: Album[] = [
     name: "Album 345",
     images: [
       {
-        url: "http://placekitten.com/300/300",
+        url: "https://place-hold.it/300x300",
         height: 300,
         width: 300,
       },
@@ -43,7 +43,7 @@ export const mockAlbums: Album[] = [
     name: "Album 456",
     images: [
       {
-        url: "http://placekitten.com/300/300",
+        url: "https://place-hold.it/300x300",
         height: 300,
         width: 300,
       },
