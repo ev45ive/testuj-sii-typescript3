@@ -18,9 +18,8 @@ class PlaylistsPageObject {
   listItems = this.page.getByTestId("playlist-item");
 
   async selectItemByName(arg0: string) {
-  
-     // TODO: from playists.spec.ts
-}
+    // TODO: from playists.spec.ts
+  }
 
   async countListItems(count: number) {
     return expect(this.listItems).toHaveCount(count);

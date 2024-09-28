@@ -19,10 +19,12 @@ type Props = {
 const NamedItemsList = ({ items, onSelect, selectedId }: Props) => {
   return (
     <div>
-      <div className="divide-y divide-gray-300 divide-solid ">
+      <div role="list" className="divide-y divide-gray-300 divide-solid ">
         {items.map((playlist, index) => (
           <p
             data-testid="playlist-item"
+            role="listitem"
+            aria-selected={selectedId == playlist.id}
             className={`px-2 py-5 ${
               selectedId == playlist.id ? "bg-slate-600 text-black" : ""
             }`}
