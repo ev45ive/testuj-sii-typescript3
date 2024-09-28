@@ -36,9 +36,11 @@ test("Testing albums", async ({ page }) => {
   await expect(Title).toContainText("Testify (Deluxe Edition)");
   await expect(TracksList.first()).toBeVisible();
 
-  expect(await TracksList.innerHTML()).toMatchSnapshot("tracks-snapshot.html");
-
   await expect(AlbumCover).toHaveScreenshot({
     maxDiffPixelRatio: 0.05,
+  });
+  await expect(TracksList).toHaveScreenshot();
+  expect(await TracksList.innerHTML()).toMatchSnapshot({
+    name: "tracks-snapshot.html",
   });
 });
