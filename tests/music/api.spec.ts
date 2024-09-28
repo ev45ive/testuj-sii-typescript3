@@ -20,7 +20,7 @@ test("Test login api token", async ({ page, request }) => {
         access_token: expect.any(String),
         expires_in: expect.any(Number),
         token_type: "Bearer",
-      }),
+      } satisfies Record<keyof APITokenResponse, any>),
     ])
   );
 });
