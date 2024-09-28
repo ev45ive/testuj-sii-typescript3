@@ -33,15 +33,11 @@ test.describe("Playlists", () => {
   });
 
   test("should show selected playlist", async ({ page }) => {
-    // Scenario Definition:
-    await selectPlaylistOnList(page, mockPlaylists[0].name);
-    await assertPlaylistDetails(page, mockPlaylists[0]);
-
-    await selectPlaylistOnList(page, mockPlaylists[1].name);
-    await assertPlaylistDetails(page, mockPlaylists[1]);
-
-    await selectPlaylistOnList(page, mockPlaylists[2].name);
-    await assertPlaylistDetails(page, mockPlaylists[2]);
+    for (const playlist of mockPlaylists) {
+      await selectPlaylistOnList(page, playlist.name);
+      await assertPlaylistDetails(page, playlist);
+    }
+    expect(mockPlaylists).toHaveLength(3);
   });
 });
 
