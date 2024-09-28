@@ -11,9 +11,12 @@
     "install": "playwright install chromium"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ky": "^1.7.2",
     "next": "14.2.13",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",
