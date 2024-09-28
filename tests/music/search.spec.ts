@@ -34,12 +34,16 @@ test("Searching", async ({ page }) => {
   await page.getByPlaceholder("Search").fill("test");
   await page.getByRole("button", { name: "Search" }).click();
 
-  await expect(
-    page
-      .locator("css=.card")
-      .filter({ hasText: /^Album 123$/ })
-      .nth(0)
-  ).toBeVisible();
+  const AlbumCard = page
+    .locator("css=.card")
+    .filter({ hasText: /^Album 123$/ })
+    .nth(0);
+
+  // await expect(AlbumCard).toBeVisible(); // handled by click()
+
+  const detailsLoaded = page.waitForURL("**/albums/123");
+  await AlbumCard.click();
+  await detailsLoaded;
 });
 
 // test("Empty search box", async ({ page }) => {
