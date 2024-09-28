@@ -8,3 +8,5 @@ export interface Playlist {
   public: boolean;
   description: string;
 }
+
+type PlaylistId = Playlist['id']
