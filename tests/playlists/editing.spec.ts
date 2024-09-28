@@ -22,18 +22,20 @@ test("Opening editor", async ({ page }) => {
   await PlaylistEditButton.click();
 
   // Editor
-  const PlaylistDescription = page.locator("textarea");
-  const PlaylistDetailsNameInput = page.locator('input[type="text"]');
-  const PlaylistEditorCancelButton = page.getByRole("button", {
+  const PlatlistEditor = page.getByTestId("playlist_editor");
+  const PlaylistDescription = PlatlistEditor.locator("textarea");
+  const PlaylistDetailsNameInput = PlatlistEditor.locator('input[type="text"]');
+  const PlaylistEditorCancelButton = PlatlistEditor.getByRole("button", {
     name: "Cancel",
   });
-  const PlaylistPublicCheckbox = page.getByRole("checkbox", { name: "Public" });
+  const PlaylistPublicCheckbox = PlatlistEditor.getByRole("checkbox", {
+    name: "Public",
+  });
 
   await expect(PlaylistDetailsNameInput).toHaveValue("Playlist 234");
   await expect(PlaylistPublicCheckbox).toBeChecked();
   await expect(PlaylistDescription).toContainText("Best playlist");
   await PlaylistEditorCancelButton.click();
-
 });
 
 test("Editor - Canceling", async ({ page }) => {});
