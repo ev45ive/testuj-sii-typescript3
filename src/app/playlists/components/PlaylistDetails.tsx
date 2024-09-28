@@ -13,14 +13,17 @@ const PlaylistDetails = ({ playlist, onEdit }: Props) => {
   // Function (Type) Guard  - if + return
   if (!playlist) {
     return (
-      <div className="p-5 border border-solid border-white">
+      <div
+        data-testid="playlist-details"
+        className="p-5 border border-solid border-white"
+      >
         No playlist selected
       </div>
     );
   }
 
   return (
-    <div>
+    <div data-testid="playlist-details">
       {/* .grid.gap-5>.grid.gap-2*3>strong{Name}+div{Playlist $$$} */}
       <div className="grid gap-5">
         <div className="grid gap-2">
