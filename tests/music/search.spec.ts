@@ -1,4 +1,5 @@
 import { mockAlbums } from "@/app/(music)/common/fixtures/mockAlbums";
+import { MockAlbumSearchResponse } from "@/app/(music)/common/model/Album";
 import { UserProfile } from "@/app/model/User";
 import test, { expect } from "@playwright/test";
 
@@ -14,7 +15,13 @@ test.describe("Search", () => {
       })
     );
     await page.route("https://api.spotify.com/v1/search**", (route) => {
-      route.fulfill({ json: { albums: { items: mockAlbums } } });
+      route.fulfill({
+        json: {
+          albums: {
+            items: mockAlbums,
+          },
+        } satisfies MockAlbumSearchResponse,
+      });
     });
 
     await page.goto("/music/search");

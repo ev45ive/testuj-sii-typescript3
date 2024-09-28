@@ -6,6 +6,9 @@ import { Playlist } from "./Playlist";
 export interface AlbumSearchResponse {
     albums: PagingObject<AlbumResponse>
 }
+export interface MockAlbumSearchResponse {
+    albums: Partial<PagingObject<Partial<AlbumResponse>>>
+}
 
 export interface AlbumResponse  {
     id:                     string;
