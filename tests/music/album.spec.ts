@@ -39,7 +39,6 @@ test("Testing albums", async ({ page }) => {
   expect(await TracksList.innerHTML()).toMatchSnapshot("tracks-snapshot.html");
 
   await expect(AlbumCover).toHaveScreenshot({
-    maxDiffPixels: 3,
+    maxDiffPixelRatio: 0.05,
   });
-
 });

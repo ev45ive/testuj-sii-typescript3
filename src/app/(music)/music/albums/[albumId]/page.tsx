@@ -73,7 +73,7 @@ const AlbumDetailView = ({
                 onClick={() => play(track)}
                 key={track.id}
               >
-                {index + 1}. {track.name}
+                {index + 1}.  {track.name}
               </div>
             ))}
           </div>
